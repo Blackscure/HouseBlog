@@ -6,12 +6,10 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import Profile from "../views/Profile.vue";
-import Admin from "../views/Admin.vue";
 import CreatePost from "../views/CreatePost.vue";
 import BlogPreview from "../views/BlogPreview.vue";
 import ViewBlog from "../views/ViewBlog.vue";
 import EditBlog from "../views/EditBlog.vue";
-import firebase from "firebase/app";
 import "firebase/auth";
 
 Vue.use(VueRouter);
@@ -71,16 +69,7 @@ const routes = [
       requiresAuth: true,
     },
   },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: Admin,
-    meta: {
-      title: "Admin",
-      requiresAuth: true,
-      requiresAdmin: true,
-    },
-  },
+  
   {
     path: "/create-post",
     name: "CreatePost",
@@ -132,30 +121,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | FireBlog`;
+  document.title = `${to.meta.title} | Blog`;
   next();
 });
-
-router.beforeEach(async (to, from, next) => {
-  let user = firebase.auth().currentUser;
-  let admin = null;
-  if (user) {
-    let token = await user.getIdTokenResult();
-    admin = token.claims.admin;
-  }
-  if (to.matched.some((res) => res.meta.requiresAuth)) {
-    if (user) {
-      if (to.matched.some((res) => res.meta.requiresAdmin)) {
-        if (admin) {
-          return next();
-        }
-        return next({ name: "Home" });
-      }
-      return next();
-    }
-    return next({ name: "Home" });
-  }
-  return next();
-});
+ 
 
 export default router;
