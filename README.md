@@ -10,15 +10,5 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ ### Instructions To use Blogs Application
+ This Application Has two parts  In order for you to Create posts  Create an account in order for you to post and del, update
