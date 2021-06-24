@@ -15,4 +15,4 @@ var firebaseConfig = {
 
 
   export { timestamp };
-  export default firebaseApp.firebase();
+  export default firebaseApp.firestore();
