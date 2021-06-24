@@ -1,4 +1,4 @@
-# Houselogs
+# HouseBlogs
 
 ## Project setup
 ```
