@@ -1,5 +1,8 @@
 # HouseBlogs
 
+## Project Description
+Simple Blog App unsigned use can only the blog, For the Singed user has the role of Creating, Updating and Deleting Blog.
+
 ## Project setup
 ```
 npm install
